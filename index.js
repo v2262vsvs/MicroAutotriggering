@@ -331,12 +331,12 @@ setInterval(() => {
         default:
             console.log(`Sorry, we are out of ${expr}.`);
     }
-
-    console.log(date.toISOString().slice(0, 10), " hours: " + date.getHours(), " minutes: " + date.getMinutes(), " day " + date.getDay())
+    
+    console.log("micro "+date.toISOString().slice(0, 10), " hours: " + date.getHours(), " minutes: " + date.getMinutes(), " day " + date.getDay())
     if (Data) {
     for (let index = 0; index < Data.length; index++) {
         const element = Data[index];
-        console.log(element)
+        //console.log(element)
         
         if ((element.morninghours === date.getHours() && element.morningminutes === date.getMinutes()) && element.morningsession!=null) {
             console.log("here")
