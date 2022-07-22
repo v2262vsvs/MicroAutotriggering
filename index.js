@@ -283,6 +283,34 @@ async function getFriday(){
     console.log(err);
     }
 }
+async function getSaturday(){
+    try {
+    var response = await fetch('https://61vqrvqwn3.execute-api.us-east-1.amazonaws.com/staging2?day=SaturdayM', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }})
+    const result = await response.json();
+    //console.log(result);
+    return await result
+    }catch (err) {
+    console.log(err);
+    }
+}
+async function getSunday(){
+    try {
+    var response = await fetch('https://61vqrvqwn3.execute-api.us-east-1.amazonaws.com/staging2?day=SundayM', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }})
+    const result = await response.json();
+    //console.log(result);
+    return await result
+    }catch (err) {
+    console.log(err);
+    }
+}
 
 
 setInterval(() => {
@@ -322,11 +350,15 @@ setInterval(() => {
             break;
         case 6:
             console.log("Today is Saturday");
-            Data=data66.data66
+            (async ()=>{
+                Data = await getSaturday()
+            })();
             break;
         case 0:
             console.log("Today is Sunday");
-            Data=data66.data66
+            (async ()=>{
+                Data = await getSunday()
+            })();
             break;
         default:
             console.log(`Sorry, we are out of ${expr}.`);
