@@ -51,7 +51,7 @@ async function sendMicrosoft(id, session,day,username,email,workspace,hours,minu
             throw new Error(`Error! status: ${response.status}`);
         }
         const result = await response.text();
-        console.log(result);
+        console.log(result, " id: ", id);
         if (result === "User ref not found."){
             console.log(id)
         }
@@ -113,7 +113,7 @@ async function sendBrainly(id, session, team_id,day,username,email,workspace,hou
         //const result0 = await response0.text()
         const result = await response.text();
         //console.log(result0)
-        console.log(result);
+        console.log(result, " id: ", id);
         if (result === "User ref not found."){
             console.log(id)
         }
@@ -174,7 +174,7 @@ async function sendPandatron(id, session,day,username,email,workspace,hours,minu
         //const result0 = await response0.text()
         const result = await response.text();
         //console.log(result0)
-        console.log(result);
+        console.log(result, " id: ", id);
         if (result === "User ref not found."){
             console.log(id)
         }
