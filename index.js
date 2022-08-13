@@ -28,25 +28,26 @@ const eveningSession = "61b65debfe32175adb317233"
 
 async function sendMicrosoft(id, session,day,username,email,workspace,hours,minutes,team_id) {
     try {
-        const response = await fetch(`https://www.fibofy.com/msteams-fibo/startNewConversation/${id}/channel_id/${session}?shared_channel=teams-bot&team_id=teams_abc`, {
+        const response = await  fetch(`https://www.fibofy.com/msteams-fibo/startNewConversation/${id}/channel_id/${session}?shared_channel=teams-bot&team_id=teams_abc&session_type=Main`, {
             "headers": {
-                "accept": "*/*",
-                "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
-                "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"macOS\"",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin",
-                "x-requested-with": "XMLHttpRequest",
-                "cookie": "_ga=GA1.2.1295714696.1654112488; _hjSessionUser_1737608=eyJpZCI6Ijc1YzY4Njc4LTVkM2MtNTFiMi1hNWYzLWJlYTdlMTJjYmExYyIsImNyZWF0ZWQiOjE2NTQxMTI0ODg1MjgsImV4aXN0aW5nIjp0cnVlfQ==; connect.sid=s%3AkoOPfyj2iDVzt3SJtEYRlOQgGXrgk0vS.wI684u1BYbBFIFa3PqK6nDVt2K581hFMkg%2Fg3ObqyiM; mp_5e395adbffa8613b8525c450d4ccb06e_mixpanel=%7B%22distinct_id%22%3A%20%221811e0ceb7dbe9-0f46e7d5771867-53580614-13c680-1811e0ceb7e41d%22%2C%22%24device_id%22%3A%20%221811e0ceb7dbe9-0f46e7d5771867-53580614-13c680-1811e0ceb7e41d%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.fibofy.com%2Fsignin%2F%3Fredir%3D%2Fpanda%2Fadmin%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.fibofy.com%22%7D; AWSELB=43F19BD70A0EC6AEC3E24AA779BA6DDF4EA15902C7BF33B5004702A544C14D64B0C21F4E9F5CD3B18FE20A1BAF2A94A0D2BFEDAA74115F80D33D51B8CA39A2F39942AEA08D; AWSELBCORS=43F19BD70A0EC6AEC3E24AA779BA6DDF4EA15902C7BF33B5004702A544C14D64B0C21F4E9F5CD3B18FE20A1BAF2A94A0D2BFEDAA74115F80D33D51B8CA39A2F39942AEA08D",
-                "Referer": "https://www.fibofy.com/panda/admin/",
-                "Referrer-Policy": "strict-origin-when-cross-origin"
+              "accept": "*/*",
+              "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
+              "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
+              "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"macOS\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-requested-with": "XMLHttpRequest"
             },
+            "referrer": "https://www.fibofy.com/panda/admin/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
             "body": null,
-            "method": "GET"
-        });
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+          });
         if (!response.ok) {
             throw new Error(`Error! status: ${response.status}`);
         }
@@ -91,28 +92,48 @@ async function sendMicrosoft(id, session,day,username,email,workspace,hours,minu
 
 async function sendBrainly(id, session, team_id,day,username,email,workspace,hours,minutes) {
     try {
-        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/D01JU76DJTS/${session}?shared_channel=shared-brainly-2&team_id=${team_id}`, {
-        "headers": {
-            "accept": "*/*",
-            "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
-            "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"macOS\"",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin",
-            "x-requested-with": "XMLHttpRequest",
-            "cookie": "_ga=GA1.2.1295714696.1654112488; _hjSessionUser_1737608=eyJpZCI6Ijc1YzY4Njc4LTVkM2MtNTFiMi1hNWYzLWJlYTdlMTJjYmExYyIsImNyZWF0ZWQiOjE2NTQxMTI0ODg1MjgsImV4aXN0aW5nIjp0cnVlfQ==; connect.sid=s%3AkoOPfyj2iDVzt3SJtEYRlOQgGXrgk0vS.wI684u1BYbBFIFa3PqK6nDVt2K581hFMkg%2Fg3ObqyiM; _gid=GA1.2.1605631229.1655555154; currentAvatar=6005ab7f8c98a11d331e918c; mp_5e395adbffa8613b8525c450d4ccb06e_mixpanel=%7B%22distinct_id%22%3A%20%221811e0ceb7dbe9-0f46e7d5771867-53580614-13c680-1811e0ceb7e41d%22%2C%22%24device_id%22%3A%20%221811e0ceb7dbe9-0f46e7d5771867-53580614-13c680-1811e0ceb7e41d%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.fibofy.com%2Fsignin%2F%3Fredir%3D%2Fpanda%2Fadmin%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.fibofy.com%22%7D; AWSELB=43F19BD70A0EC6AEC3E24AA779BA6DDF4EA15902C7A6E2E052B0BF03B6A9B463D9674071055CD3B18FE20A1BAF2A94A0D2BFEDAA74115F80D33D51B8CA39A2F39942AEA08D; AWSELBCORS=43F19BD70A0EC6AEC3E24AA779BA6DDF4EA15902C7A6E2E052B0BF03B6A9B463D9674071055CD3B18FE20A1BAF2A94A0D2BFEDAA74115F80D33D51B8CA39A2F39942AEA08D",
-            "Referer": "https://www.fibofy.com/panda/admin/",
-            "Referrer-Policy": "strict-origin-when-cross-origin"
-        },
-        "body": null,
-        "method": "GET"
-        });
-        //const result0 = await response0.text()
+        const res2 = await fetch(`https://www.fibofy.com/panda-sharedchannels/checkUserPrivateChannel/${id}?shared_channel=shared-brainly-2&team_id=T7NBLKUJV&session_type=Main&bypass=cc4d9d62ad12bb29cce8663cffdaf6e9026961cc81b8dfcf10d4683087403180`, {
+            "headers": {
+              "accept": "*/*",
+              "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
+              "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"macOS\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-requested-with": "XMLHttpRequest"
+            },
+            "referrer": "https://www.fibofy.com/panda/admin/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+          });
+        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/D01HRBQ7L3H/${session}?shared_channel=shared-brainly-2&team_id=${team_id}&session_type=Main`, {
+            "headers": {
+              "accept": "*/*",
+              "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
+              "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
+              "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"macOS\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-requested-with": "XMLHttpRequest"
+            },
+            "referrer": "https://www.fibofy.com/panda/admin/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+          });
+        const result1 = await res2.text()
+        console.log(result1)
         const result = await response.text();
-        //console.log(result0)
         console.log(result, " id: ", id);
         if (result === "User ref not found."){
             console.log(id)
@@ -152,28 +173,48 @@ async function sendBrainly(id, session, team_id,day,username,email,workspace,hou
 
 async function sendPandatron(id, session,day,username,email,workspace,hours,minutes,team_id) {
     try {
-        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/D01TNUGT9MM/${session}?shared_channel=pandacoachbot&team_id=T014DKXB53N`, {
-  "headers": {
-    "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
-    "accept": "*/*",
-    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
-    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"macOS\"",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requested-with": "XMLHttpRequest",
-    "cookie": "_ga=GA1.2.1295714696.1654112488; _hjSessionUser_1737608=eyJpZCI6Ijc1YzY4Njc4LTVkM2MtNTFiMi1hNWYzLWJlYTdlMTJjYmExYyIsImNyZWF0ZWQiOjE2NTQxMTI0ODg1MjgsImV4aXN0aW5nIjp0cnVlfQ==; connect.sid=s%3AlAcwFCOEvTSrUOZ9kG3L2wpUfkdQt7h0.Gisj9i31ZjJ1a%2FLaIEPSKfsIY%2BLoVK81IV5PAHnjb1A; _gid=GA1.2.1429727279.1655817083; currentAvatar=6005ab7f8c98a11d331e918c; mp_5e395adbffa8613b8525c450d4ccb06e_mixpanel=%7B%22distinct_id%22%3A%20%221811e0ceb7dbe9-0f46e7d5771867-53580614-13c680-1811e0ceb7e41d%22%2C%22%24device_id%22%3A%20%221811e0ceb7dbe9-0f46e7d5771867-53580614-13c680-1811e0ceb7e41d%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.fibofy.com%2Fsignin%2F%3Fredir%3D%2Fpanda%2Fadmin%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.fibofy.com%22%7D; AWSELB=43F19BD70A0EC6AEC3E24AA779BA6DDF4EA15902C7BF33B5004702A544C14D64B0C21F4E9F5CD3B18FE20A1BAF2A94A0D2BFEDAA74115F80D33D51B8CA39A2F39942AEA08D; AWSELBCORS=43F19BD70A0EC6AEC3E24AA779BA6DDF4EA15902C7BF33B5004702A544C14D64B0C21F4E9F5CD3B18FE20A1BAF2A94A0D2BFEDAA74115F80D33D51B8CA39A2F39942AEA08D",
-    "Referer": "https://www.fibofy.com/panda/admin/",
-    "Referrer-Policy": "strict-origin-when-cross-origin"
-  },
-  "body": null,
-  "method": "GET"
-});
-        //const result0 = await response0.text()
+        const res2 = await fetch(`https://www.fibofy.com/panda-sharedchannels/checkUserPrivateChannel/${id}?shared_channel=pandacoachbot&team_id=T014DKXB53N&session_type=Main&bypass=cc4d9d62ad12bb29cce8663cffdaf6e9026961cc81b8dfcf10d4683087403180`, {
+            "headers": {
+              "accept": "*/*",
+              "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
+              "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"macOS\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-requested-with": "XMLHttpRequest"
+            },
+            "referrer": "https://www.fibofy.com/panda/admin/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+          });
+        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/D01E1Q8MYQM/${session}?shared_channel=pandacoachbot&team_id=T014DKXB53N&session_type=Main`, {
+            "headers": {
+              "accept": "*/*",
+              "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
+              "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
+              "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"macOS\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-requested-with": "XMLHttpRequest"
+            },
+            "referrer": "https://www.fibofy.com/panda/admin/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+          });
+        const result1 = await res2.text()
+        console.log(result1)
         const result = await response.text();
-        //console.log(result0)
         console.log(result, " id: ", id);
         if (result === "User ref not found."){
             console.log(id)
