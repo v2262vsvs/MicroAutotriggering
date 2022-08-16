@@ -111,7 +111,10 @@ async function sendBrainly(id, session, team_id,day,username,email,workspace,hou
             "mode": "cors",
             "credentials": "include"
           });
-        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/D01HRBQ7L3H/${session}?shared_channel=shared-brainly-2&team_id=${team_id}&session_type=Main`, {
+          const result1 = await res2.json()
+          console.log(result1.data.body.channel.id)
+          const channel_id = result1.data.body.channel.id
+        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/${channel_id}/${session}?shared_channel=shared-brainly-2&team_id=${team_id}&session_type=Main`, {
             "headers": {
               "accept": "*/*",
               "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
@@ -131,8 +134,7 @@ async function sendBrainly(id, session, team_id,day,username,email,workspace,hou
             "mode": "cors",
             "credentials": "include"
           });
-        const result1 = await res2.text()
-        console.log(result1)
+        
         const result = await response.text();
         console.log(result, " id: ", id);
         if (result === "User ref not found."){
@@ -192,7 +194,10 @@ async function sendPandatron(id, session,day,username,email,workspace,hours,minu
             "mode": "cors",
             "credentials": "include"
           });
-        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/D01E1Q8MYQM/${session}?shared_channel=pandacoachbot&team_id=T014DKXB53N&session_type=Main`, {
+          const result1 = await res2.json()
+          console.log(result1.data.body.channel.id)
+          const channel_id = result1.data.body.channel.id
+        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/${channel_id}/${session}?shared_channel=pandacoachbot&team_id=T014DKXB53N&session_type=Main`, {
             "headers": {
               "accept": "*/*",
               "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
@@ -212,8 +217,7 @@ async function sendPandatron(id, session,day,username,email,workspace,hours,minu
             "mode": "cors",
             "credentials": "include"
           });
-        const result1 = await res2.text()
-        console.log(result1)
+        
         const result = await response.text();
         console.log(result, " id: ", id);
         if (result === "User ref not found."){
@@ -356,7 +360,7 @@ async function getSunday(){
 
 setInterval(() => {
     var date = new Date();
-    let wait = 0;
+    let wait = 1;
     const expr = date.getDay();
     switch (expr) {
         case 1:
@@ -425,7 +429,7 @@ setInterval(() => {
                 }
                 //run(element.id, element.workspace, element.session);
             }, wait * 2000);
-            wait += 1
+            wait += 2
         }
 
     }}
