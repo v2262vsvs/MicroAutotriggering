@@ -13,7 +13,7 @@ let Data;
 const MicrosoftWorkspace = "teams-bot"
 //const KoneWorkspace = `[data-shared-channel='kone']`
 const PandaWorspace = "pandacoachbot"
-const BrainlyWorkspace = "shared-brainly-2"
+const BrainlyWorkspace = "brainly"
 const CulturedBrainWorkspace = "culturedbrain"
 
 
@@ -94,48 +94,57 @@ async function sendMicrosoft(id, session, day, username, email, workspace, hours
 
 async function sendBrainly(id, session, team_id, day, username, email, workspace, hours, minutes) {
     try {
-        const res2 = await fetch(`https://www.fibofy.com/panda-sharedchannels/checkUserPrivateChannel/${id}?shared_channel=shared-brainly-2&team_id=T7NBLKUJV&session_type=Main&bypass=cc4d9d62ad12bb29cce8663cffdaf6e9026961cc81b8dfcf10d4683087403180`, {
-            "headers": {
-                "accept": "*/*",
+        const res2 = await fetch(
+            `https://www.fibofy.com/panda-sharedchannels/checkUserPrivateChannel/${id}?shared_channel=brainly&team_id=${team_id}&session_type=Main&bypass=cc4d9d62ad12bb29cce8663cffdaf6e9026961cc81b8dfcf10d4683087403180`,
+            {
+              headers: {
+                accept: "*/*",
                 "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
-                "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+                "sec-ch-ua":
+                  '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
                 "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"macOS\"",
+                "sec-ch-ua-platform": '"macOS"',
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
-                "x-requested-with": "XMLHttpRequest"
-            },
-            "referrer": "https://www.fibofy.com/panda/admin/",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": null,
-            "method": "GET",
-            "mode": "cors",
-            "credentials": "include"
-        });
+                "x-requested-with": "XMLHttpRequest",
+              },
+              referrer: "https://www.fibofy.com/panda/admin/",
+              referrerPolicy: "strict-origin-when-cross-origin",
+              body: null,
+              method: "GET",
+              mode: "cors",
+              credentials: "include",
+            }
+          );
         const result1 = await res2.json()
         console.log(result1.data.body.channel.id)
         const channel_id = result1.data.body.channel.id
-        var response = await fetch(`https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/${channel_id}/${session}?shared_channel=shared-brainly-2&team_id=${team_id}&session_type=Main`, {
-            "headers": {
-                "accept": "*/*",
-                "authorization": "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
+        var response = await fetch(
+            `https://www.fibofy.com/panda-sharedchannels/startNewConversation/${id}/${channel_id}/${session}?shared_channel=brainly&team_id=${team_id}&session_type=Main`,
+            {
+              headers: {
+                accept: "*/*",
+                authorization:
+                  "8a4bfadf32bfb287126fd9ef9ebac259ca32f132bd5cb4f8391edf9a69a06758",
                 "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
-                "sec-ch-ua": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\"",
+                "sec-ch-ua":
+                  '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
                 "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"macOS\"",
+                "sec-ch-ua-platform": '"macOS"',
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
-                "x-requested-with": "XMLHttpRequest"
-            },
-            "referrer": "https://www.fibofy.com/panda/admin/",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": null,
-            "method": "GET",
-            "mode": "cors",
-            "credentials": "include"
-        });
+                "x-requested-with": "XMLHttpRequest",
+              },
+              referrer: "https://www.fibofy.com/panda/admin/",
+              referrerPolicy: "strict-origin-when-cross-origin",
+              body: null,
+              method: "GET",
+              mode: "cors",
+              credentials: "include",
+            }
+          );
 
         const result = await response.text();
         console.log(result, " id: ", id);
